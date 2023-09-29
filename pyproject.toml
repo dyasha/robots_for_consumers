@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "robots-for-consumers"
+version = "0.1.0"
+description = ""
+authors = ["Владислав Береснев <vladislaw.beresnev2018@yandex.ru>"]
+readme = "README.md"
+packages = [{include = "robots_for_consumers"}]
+
+[tool.poetry.dependencies]
+python = "3.10.9"
+django = "2.2.16"
+black = "^23.9.1"
+djangorestframework = "3.12.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79
