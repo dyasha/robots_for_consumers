@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from robots.views import APIRobot
 
+from robots.views import APIRobot, ExportRobot
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("robot/", APIRobot.as_view()),
+    path("export/", ExportRobot.index),
+    path("export_robots_xls/", ExportRobot.export_robots_xls),
 ]
