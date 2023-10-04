@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from orders.views import OrderCreate
 from robots.views import APIRobot, ExportRobot
 
 urlpatterns = [
@@ -23,4 +24,5 @@ urlpatterns = [
     path("robot/", APIRobot.as_view()),
     path("export/", ExportRobot.index),
     path("export_robots_xls/", ExportRobot.export_robots_xls),
+    path("create_order/", OrderCreate.create_order),
 ]

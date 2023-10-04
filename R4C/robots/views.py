@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from robots.models import Robot
+from waitlist.send_messages import SMessage
 
 from .serializers import RobotSerializer
 
@@ -21,6 +22,7 @@ class APIRobot(APIView):
         serializer = RobotSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            SMessage.send_message(request.data)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
